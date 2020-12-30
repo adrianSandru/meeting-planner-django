@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Greetings</title>
-    </head>
-    <body>
-        <h1>
-            Meeting Room Apointments
-        </h1>
-        <p>
-            This is a demo app
-        </p>
-        <h2>
-            Meetings
-        </h2>
-        <ul>
-            {% for meeting in meetings %}
-            <li>
-                <a href = " {% url 'detail' meeting.id %}">
+{% extends "base.html" %}
+
+{% block title %}Greetings{% endblock %}
+
+{% block content %}
+<h2>Meetings</h2>
+
+<p>
+    This is a demo app
+</p>
+<ul>
+    {% for meeting in meetings %}
+    <li>
+        <a href = " {% url 'detail' meeting.id %}">
                     {{ meeting.title }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-        <a href = "{%url 'rooms' %}"> Rooms </a>
-    </body>
-</html>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href = "{%url 'rooms' %}"> Rooms List </a>
+
+{% endblock %}
